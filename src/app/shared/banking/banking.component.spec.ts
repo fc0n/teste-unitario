@@ -42,6 +42,14 @@ describe('BankingComponent', () => {
     expect(component.getCarteira).toEqual(50);
   });
 
+  it('(I) setSacar(): shoud transfer poupanca from carteira', () => {
+    let el = fixture.debugElement.nativeElement;
+    el.querySelector('#inputSacar').value = '10';
+    el.querySelector('#sacar').click();
+    fixture.detectChanges();
+    expect(el.querySelector('#get-carteira').textContent).toEqual(' 60 ');
+  });
+
   it('(U) setDepositar(): shoud transfer carteira from poupanca', () => {
     component.setDepositar('50');
     expect(component.getCarteira).toEqual(0);
@@ -53,5 +61,13 @@ describe('BankingComponent', () => {
     expect(component.setDepositar('100')).not.toBeTruthy();
     expect(component.getPoupanca).toEqual(10);
     expect(component.getCarteira).toEqual(50);
+  });
+
+  it('(I) setDepositar(): shoud transfer carteira from poupanca', () => {
+    let el = fixture.debugElement.nativeElement;
+    el.querySelector('#inputDepositar').value = '10';
+    el.querySelector('#depositar').click();
+    fixture.detectChanges();
+    expect(el.querySelector('#get-poupanca').textContent).toEqual(' 20 ');
   });
 });
