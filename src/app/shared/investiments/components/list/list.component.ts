@@ -1,3 +1,4 @@
+import { ListInvestimentsService } from './../../services/list-investiments.service';
 import { Component, OnInit } from '@angular/core';
 
 //Model
@@ -29,9 +30,10 @@ export class ListComponent implements OnInit {
     },
   ]
   
-  constructor() { }
+  constructor(private ListInvestimentsService: ListInvestimentsService) { }
 
   ngOnInit(): void {
+    this.ListInvestimentsService.list().subscribe(res => console.log(res));
   }
 
 }

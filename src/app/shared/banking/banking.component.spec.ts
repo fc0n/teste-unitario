@@ -22,28 +22,28 @@ describe('BankingComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('(U) getPoupanca(): shoud have poupanca = 10', () => {
+  it('(U) getPoupanca(): should have poupanca = 10', () => {
     expect(component.getPoupanca).toEqual(10);
   });
 
-  it('(U) getCarteira(): shoud have carteira = 50', () => {
+  it('(U) getCarteira(): should have carteira = 50', () => {
     expect(component.getCarteira).toEqual(50);
   });
 
-  it('(U) setSacar(): shoud transfer poupanca from carteira', () => {
+  it('(U) setSacar(): should transfer poupanca from carteira', () => {
     component.setSacar('10');
     expect(component.getPoupanca).toEqual(0);
     expect(component.getCarteira).toEqual(60);
   });
 
-  it('(U) setsacar(): shoud transfer poupanca dont have string  (isNaN) or poupanca < value', () => {
+  it('(U) setsacar(): should transfer poupanca dont have string  (isNaN) or poupanca < value', () => {
     expect(component.setSacar('string')).not.toBeTruthy();
     expect(component.setSacar('100')).not.toBeTruthy();
     expect(component.getPoupanca).toEqual(10);
     expect(component.getCarteira).toEqual(50);
   });
 
-  it('(I) setSacar(): shoud transfer poupanca from carteira', () => {
+  it('(I) setSacar(): should transfer poupanca from carteira', () => {
     let el = fixture.debugElement.nativeElement;
     el.querySelector('#inputSacar').value = '10';
     el.querySelector('#sacar').click();
@@ -51,20 +51,20 @@ describe('BankingComponent', () => {
     expect(el.querySelector('#get-carteira').textContent.trim()).toEqual('60');
   });
 
-  it('(U) setDepositar(): shoud transfer carteira from poupanca', () => {
+  it('(U) setDepositar(): should transfer carteira from poupanca', () => {
     component.setDepositar('50');
     expect(component.getCarteira).toEqual(0);
     expect(component.getPoupanca).toEqual(60);
   });
 
-  it('(U) setDepositar(): shoud transfer carteira dont have string  (isNaN) or carteira < value', () => {
+  it('(U) setDepositar(): should transfer carteira dont have string  (isNaN) or carteira < value', () => {
     expect(component.setDepositar('string')).not.toBeTruthy();
     expect(component.setDepositar('100')).not.toBeTruthy();
     expect(component.getPoupanca).toEqual(10);
     expect(component.getCarteira).toEqual(50);
   });
 
-  it('(I) setDepositar(): shoud transfer carteira from poupanca', () => {
+  it('(I) setDepositar(): should transfer carteira from poupanca', () => {
     let el = fixture.debugElement.nativeElement;
     el.querySelector('#inputDepositar').value = '10';
     el.querySelector('#depositar').click();
