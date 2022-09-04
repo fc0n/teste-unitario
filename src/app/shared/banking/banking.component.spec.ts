@@ -48,7 +48,7 @@ describe('BankingComponent', () => {
     el.querySelector('#inputSacar').value = '10';
     el.querySelector('#sacar').click();
     fixture.detectChanges();
-    expect(el.querySelector('#get-carteira').textContent).toEqual(' 60 ');
+    expect(el.querySelector('#get-carteira').textContent.trim()).toEqual('60');
   });
 
   it('(U) setDepositar(): shoud transfer carteira from poupanca', () => {
@@ -69,6 +69,6 @@ describe('BankingComponent', () => {
     el.querySelector('#inputDepositar').value = '10';
     el.querySelector('#depositar').click();
     fixture.detectChanges();
-    expect(el.querySelector('#get-poupanca').textContent).toEqual(' 20 ');
+    expect(el.querySelector('#get-poupanca').textContent.trim()).toEqual('20');
   });
 });
