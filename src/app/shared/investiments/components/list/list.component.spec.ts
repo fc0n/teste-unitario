@@ -50,9 +50,14 @@ describe('ListComponent', () => {
   });
 
   it('(I) should list investiments' , () => {
+    spyOn(service, 'list').and.returnValue(of(mockList));
+
+    component.ngOnInit();
+    fixture.detectChanges();
+
     let investiments = fixture.debugElement.nativeElement.querySelectorAll('.listItens');
-    expect(investiments.length).toBe(4);
-    expect(investiments[0].textContent.trim()).toEqual('Itaú | 100');
-    expect(investiments[3].textContent.trim()).toEqual('Inter | 100');
+    expect(investiments.length).toBe(5);
+    expect(investiments[0].textContent.trim()).toEqual('Banco 1 | 100');
+    expect(investiments[4].textContent.trim()).toEqual('Banco 5 | 100');
   });
 });
