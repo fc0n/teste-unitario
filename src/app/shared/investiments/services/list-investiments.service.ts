@@ -12,11 +12,9 @@ import { Investiments } from './../model/investiments';
 export class ListInvestimentsService {
   private url: string = "https://raw.githubusercontent.com/troquatte/fake-server/main/investiments-all.json";
 
-  constructor(private http: HttpClient) {
-    
-   }
+  constructor(private http: HttpClient) {}
 
-  public list():Observable<Investiments>{
-      return this.http.get<Investiments>(this.url).pipe(map(res => res));
+  public list():Observable<Array<Investiments>>{
+      return this.http.get<Array<Investiments>>(this.url).pipe(map(res => res));
   }
 }
